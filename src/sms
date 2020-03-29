@@ -1,0 +1,44 @@
+#!/bin/sh
+if [ "$#" -eq 1 ]; then read stdinmsg; fi
+exec <"$0" || exit; read v; read v; read v; exec /usr/bin/osascript - "$1" "${*:2} $stdinmsg"; exit
+
+on run {identifier, message}
+    set identifier_ to findContact(identifier)
+    activate application "Messages"
+    tell application "System Events" to tell process "Messages"
+        key code 45 using command down -- press Command + N to start a new window
+        keystroke identifier_ -- input the phone number
+        key code 36 -- press Enter to focus on the message area 
+        keystroke message -- type some message
+        key code 36 -- press Enter to send
+    end tell
+end run
+
+on findContact(identifier)
+	set contacts to {alice:"alice.svezia@gmail.com", alicesms:"07773978887", james:"07476778365"}
+	
+	set result to getItemByKey(contacts, identifier)
+	if result is false then
+		return identifier
+	else
+		return result
+	end if
+end findContact
+
+on getItemByKey(theRecord, theKey)
+	set theList to (get property "usrf" in theRecord)
+	set position to getPositionOfItemInList(theKey, theList)
+	if position is 0 then
+		return false
+	else
+		return item (position + 1) of theList
+	end if
+end getItemByKey
+
+on getPositionOfItemInList(theItem, theList)
+	repeat with a from 1 to count of theList
+		if item a of theList is theItem then return a
+	end repeat
+	return 0
+end getPositionOfItemInList
+
