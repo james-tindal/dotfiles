@@ -144,3 +144,19 @@ export PATH=~/bin:$PATH
 alias alice="sms alice"
 alias cat=bat
 alias gcc=gcc-9
+export dotfiles=~/.config/dotfiles
+export zrc=$dotfiles/.zshrc
+alias ez="o $zrc"
+az() { echo "$@" >> $zrc }
+
+alias dotfiles-status="git -C $dotfiles status"
+push-dotfiles() {
+  if [ $# -eq 0 ]
+  then
+    echo "You must provide a commit message"
+  else
+    git -C $dotfiles add .
+    git -C $dotfiles commit -m "$1"
+    git -C $dotfiles push
+  fi
+}

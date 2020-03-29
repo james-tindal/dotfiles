@@ -41,4 +41,3 @@ on getPositionOfItemInList(theItem, theList)
 	end repeat
 	return 0
 end getPositionOfItemInList
-
