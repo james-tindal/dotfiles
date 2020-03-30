@@ -139,7 +139,6 @@ function url {
 }
 
 export PATH=~/Library/Python/3.7/bin:$PATH
-export PATH=~/bin:$PATH
 
 alias alice="sms alice"
 alias cat=bat
@@ -148,6 +147,8 @@ export dotfiles=~/.config/dotfiles
 export zrc=$dotfiles/.zshrc
 alias ez="o $zrc"
 az() { echo "$@" >> $zrc }
+
+export PATH=$dotfiles/bin:$PATH
 
 alias dotfiles-status="git -C $dotfiles status"
 push-dotfiles() {
