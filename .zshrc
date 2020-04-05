@@ -147,6 +147,7 @@ export dotfiles=~/.config/dotfiles
 export zrc=$dotfiles/.zshrc
 alias ez="o $zrc"
 az() { echo "$@" >> $zrc }
+alias sz="source $zrc"
 
 export PATH=$dotfiles/bin:$PATH
 
@@ -160,4 +161,23 @@ push-dotfiles() {
     git -C $dotfiles commit -m "$1"
     git -C $dotfiles push
   fi
+}
+
+# get combined duration of all media passed
+duration() {
+  local sum=0
+  local counter=0
+  tput sc
+  for i in $@; do
+    printf .
+    current=$(\
+      ffprobe -v error -show_entries format=duration \
+        -of default=noprint_wrappers=1:nokey=1 -i "$i" \
+    )
+    ((sum+=current))
+    ((counter++))
+  ; done
+  tput el1
+  tput rc
+  printf '%dh:%dm:%ds\n' $(($sum/3600)) $(($sum%3600/60)) $(($sum%60))
 }
