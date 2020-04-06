@@ -169,11 +169,16 @@ duration() {
   local counter=0
   tput sc
   for i in $@; do
-    printf .
+    tput el1
+    tput rc
+    if (( counter >= 40 )); then counter=1 fi
+    printf %${counter}s |tr " " "."
+
     current=$(\
       ffprobe -v error -show_entries format=duration \
         -of default=noprint_wrappers=1:nokey=1 -i "$i" \
     )
+
     ((sum+=current))
     ((counter++))
   ; done
