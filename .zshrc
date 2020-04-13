@@ -156,7 +156,8 @@ alias sz="source $zrc"
 export PATH=$dotfiles/bin:$PATH
 
 alias dotfiles-status="git -C $dotfiles status"
-push-dotfiles() {
+alias dotfiles-pull="git -C $dotfiles pull"
+dotfiles-push() {
   if [ $# -eq 0 ]
   then
     echo "You must provide a commit message"
