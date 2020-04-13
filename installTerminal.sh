@@ -15,6 +15,13 @@ chsh -s /usr/local/bin/zsh
 ln -s ~/.config/dotfiles/.zshrc ~/.zshrc
 
 # install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended --keep-zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --skip-chsh --unattended --keep-zshrc
+
+open /Applications/iTerm.app
 
 
+# Install applescript List & Record Tools
+curl -L http://latenightsw.com/archives/ListRecordTools1.0.6.dmg -o ListRecordTools1.0.6.dmg
+open ListRecordTools1.0.6.dmg
+md ~/Library/ScriptingAdditions
+cp "/Volumes/List & Record Tools 1.0.6/List & Record Tools.osax" ~/Library/ScriptingAdditions
