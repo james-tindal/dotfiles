@@ -105,7 +105,7 @@ fi
 
 
 alias o=open
-alias e=open -e
+alias e="open -e"
 
 function gc {
   local msg
@@ -155,6 +155,7 @@ alias sz="source $zrc"
 
 export PATH=$dotfiles/bin:$PATH
 
+alias dotfiles-cd="cd $dotfiles"
 alias dotfiles-status="git -C $dotfiles status"
 alias dotfiles-pull="git -C $dotfiles pull"
 dotfiles-push() {
