@@ -24,6 +24,6 @@ open /Applications/iTerm.app
 curl -L http://latenightsw.com/archives/ListRecordTools1.0.6.dmg -o ListRecordTools1.0.6.dmg
 hdiutil attach ListRecordTools1.0.6.dmg
 md ~/Library/ScriptingAdditions
-cp "/Volumes/List & Record Tools 1.0.6/List & Record Tools.osax" ~/Library/ScriptingAdditions
-hdiutil detach "/Volumes/List & Record Tools 1.0.6/List & Record Tools.osax"
+cp -r "/Volumes/List & Record Tools 1.0.6/List & Record Tools.osax" ~/Library/ScriptingAdditions
+hdiutil detach "/Volumes/List & Record Tools 1.0.6"
 rm ListRecordTools1.0.6.dmg
