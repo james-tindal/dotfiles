@@ -192,3 +192,14 @@ duration() {
   tput rc
   printf '%dh:%dm:%ds\n' $(($sum/3600)) $(($sum%3600/60)) $(($sum%60))
 }
+
+#-#-#-#-#  :: ⌁ BLUETOOTH ⌁ ::  #-#-#-#-#
+#    connect my headphones
+alias cmh="blueutil    --connect 00-86-10-11-01-b2"
+# disconnect my headphones
+alias dmh="blueutil --disconnect 00-86-10-11-01-b2"
+#    connect Alice's headphones
+alias cah="blueutil    --connect 38-18-4c-4b-40-bc"
+# disconnect Alice's headphones
+alias dah="blueutil --disconnect 38-18-4c-4b-40-bc"
+
