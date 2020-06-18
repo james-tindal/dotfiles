@@ -43,6 +43,7 @@ plugins=(
   git
   zsh-better-npm-completion
   zsh-completions
+  aws
 )
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
@@ -55,11 +56,14 @@ export PATH=~/Library/Python/3.7/bin:$PATH
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 alias tf=terraform
-complete -C /usr/local/bin/aws_completer aws
 
 alias o=open
 alias e="open -e"
 alias b=brew
+
+
+bindkey "^U" backward-kill-line
+bindkey "^X^_" redo
 
 
 
