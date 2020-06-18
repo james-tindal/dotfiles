@@ -9,7 +9,7 @@ defaults read -app iTerm
 osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/iTerm.app", hidden:true}'
 
 # set up zsh
-brew install zsh zsh-completions
+brew install zsh
 echo /usr/local/bin/zsh | sudo tee -a /etc/shells > /dev/null
 chsh -s /usr/local/bin/zsh
 ln -s ~/.config/dotfiles/.zshrc ~/.zshrc
@@ -19,8 +19,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 open /Applications/iTerm.app
 
-
-# Install applescript List & Record Tools
+# Install applescript List & Record Tools     # No longer works as of Mojave
 curl -L http://latenightsw.com/archives/ListRecordTools1.0.6.dmg -o ListRecordTools1.0.6.dmg
 hdiutil attach ListRecordTools1.0.6.dmg
 md ~/Library/ScriptingAdditions
