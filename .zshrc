@@ -111,6 +111,7 @@ export PATH=~/Library/Python/3.7/bin:$PATH
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 alias tf=terraform
+complete -C /usr/local/bin/aws_completer aws
 
 
 
