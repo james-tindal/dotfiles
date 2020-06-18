@@ -61,6 +61,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
 )
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,8 +101,6 @@ if type brew &>/dev/null; then
    autoload -Uz compinit
   compinit
 fi
-
-
 
 
 alias o=open
@@ -193,7 +192,7 @@ duration() {
   printf '%dh:%dm:%ds\n' $(($sum/3600)) $(($sum%3600/60)) $(($sum%60))
 }
 
-#-#-#-#-#  :: ⌁ BLUETOOTH ⌁ ::  #-#-#-#-#
+#-#-#-#-#  ::  ⌁ BLUETOOTH ⌁  ::  #-#-#-#-#
 #    connect my headphones
 alias cmh="blueutil    --connect 00-86-10-11-01-b2"
 # disconnect my headphones
@@ -202,4 +201,14 @@ alias dmh="blueutil --disconnect 00-86-10-11-01-b2"
 alias cah="blueutil    --connect 38-18-4c-4b-40-bc"
 # disconnect Alice's headphones
 alias dah="blueutil --disconnect 38-18-4c-4b-40-bc"
+#-#-#-#-#  :: :: :: ::: :: :: ::  #-#-#-#-#
 
+alias movies='e ~/"Library/Mobile Documents/com~apple~TextEdit/Documents/Movies to Watch.rtf"'
+
+eval "$(pyenv init -)"
+
+export PATH="/usr/local/sbin:$PATH"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+alias tf=terraform
