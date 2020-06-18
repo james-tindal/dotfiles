@@ -103,6 +103,29 @@ if type brew &>/dev/null; then
 fi
 
 
+eval "$(pyenv init -)"
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH=~/Library/Python/3.7/bin:$PATH
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/terraform terraform
+alias tf=terraform
+
+
+
+
+
+
+          # ----  END basic config  ---- #
+          # ---- START user scripts ---- #
+
+
+
+
+
+
+
 alias o=open
 alias e="open -e"
 
@@ -141,7 +164,6 @@ function url {
   echo "[InternetShortcut]\nURL=$1" > $title.url
 }
 
-export PATH=~/Library/Python/3.7/bin:$PATH
 
 alias alice="sms alice"
 alias cat=bat
@@ -204,11 +226,3 @@ alias dah="blueutil --disconnect 38-18-4c-4b-40-bc"
 #-#-#-#-#  :: :: :: ::: :: :: ::  #-#-#-#-#
 
 alias movies='e ~/"Library/Mobile Documents/com~apple~TextEdit/Documents/Movies to Watch.rtf"'
-
-eval "$(pyenv init -)"
-
-export PATH="/usr/local/sbin:$PATH"
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/terraform terraform
-alias tf=terraform
