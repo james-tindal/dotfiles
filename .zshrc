@@ -1,21 +1,11 @@
 export ZSH=~/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -24,26 +14,20 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 plugins=(
   git
+  github # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/github
   zsh-better-npm-completion
   zsh-completions
   aws
+  docker
 )
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
@@ -178,3 +162,6 @@ alias dah="blueutil --disconnect 38-18-4c-4b-40-bc"
 #-#-#-#-#  :: :: :: ::: :: :: ::  #-#-#-#-#
 
 alias movies='e ~/"Library/Mobile Documents/com~apple~TextEdit/Documents/Movies to Watch.rtf"'
+
+# fauna autocomplete setup
+FAUNA_AC_ZSH_SETUP_PATH=/Users/admin/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
