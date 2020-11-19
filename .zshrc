@@ -164,4 +164,4 @@ alias dah="blueutil --disconnect 38-18-4c-4b-40-bc"
 alias movies='e ~/"Library/Mobile Documents/com~apple~TextEdit/Documents/Movies to Watch.rtf"'
 
 # fauna autocomplete setup
-FAUNA_AC_ZSH_SETUP_PATH=/Users/admin/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
+FAUNA_AC_ZSH_SETUP_PATH=/Users/James/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
