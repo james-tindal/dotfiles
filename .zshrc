@@ -32,8 +32,6 @@ plugins=(
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
-eval "$(pyenv init -)"
-
 export PATH="/usr/local/sbin:$PATH"
 export PATH=~/Library/Python/3.7/bin:$PATH
 
