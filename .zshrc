@@ -21,6 +21,8 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
+setopt interactivecomments
+
 plugins=(
   git
   github # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/github
@@ -28,6 +30,7 @@ plugins=(
   zsh-completions
   aws
   docker
+  pyenv
 )
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
@@ -46,6 +49,7 @@ alias b=brew
 
 bindkey "^U" backward-kill-line
 bindkey "^X^_" redo
+bindkey "^Q" push-input  #ctrl-q to push input to history
 
 
 
@@ -53,6 +57,24 @@ bindkey "^X^_" redo
 
 
           # ----  END basic config  ---- #
+          # ---- START init conda ---- #
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/usr/local/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+          # ---- END init conda ---- #
           # ---- START user scripts ---- #
 
 
@@ -84,17 +106,19 @@ function fex {
   ffmpeg -ss "$1" -i "$3" -vframes 1 -q:v 2 "${3%}.jpg"
 }
 
-# Create url file
-# $ url <url> <title?>
-# The file name will be <title> if supplied, 
-# otherwise it downloads the page and gets the title
-function url {
-  if [[ $2 ]]; then
-    title=$2
-  else
-    title=$(wget -qO- $1 | \
-    perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)\s*<\/title/si')
-  fi
+
+function url { documentation="
+Create url file
+$ url <url> <title?>
+The file name will be <title> if supplied,
+otherwise it downloads the page and gets the title
+"
+  case $# in
+    0) echo $documentation ;;
+    1) title=$(wget -qO- $1 | \
+         perl -l -0777 -ne 'print $1 if /<title.*?>\s*(.*?)\s*<\/title/si') ;;
+    2) title=$2
+  esac
   echo "[InternetShortcut]\nURL=$1" > $title.url
 }
 
@@ -163,3 +187,13 @@ alias movies='e ~/"Library/Mobile Documents/com~apple~TextEdit/Documents/Movies 
 
 # fauna autocomplete setup
 FAUNA_AC_ZSH_SETUP_PATH=/Users/James/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
+# fauna autocomplete setup
+FAUNA_AC_ZSH_SETUP_PATH=/Users/james/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
+
+alias ya="yarn add"
+alias yga="yarn global add"
+
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
