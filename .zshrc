@@ -24,13 +24,13 @@ COMPLETION_WAITING_DOTS="true"
 setopt interactivecomments
 
 plugins=(
-  git
-  github # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/github
+  # git
+  # github # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/github
   zsh-better-npm-completion
   zsh-completions
-  aws
-  docker
-  pyenv
+  # aws
+  # docker
+  # pyenv
 )
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
@@ -54,7 +54,7 @@ bindkey "^Q" push-input  #ctrl-q to push input to history
 
 
 
-
+: '
 
           # ----  END basic config  ---- #
           # ---- START init conda ---- #
@@ -76,7 +76,7 @@ unset __conda_setup
 
           # ---- END init conda ---- #
           # ---- START user scripts ---- #
-
+'
 
 
 

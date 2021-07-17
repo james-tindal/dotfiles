@@ -1,0 +1,1 @@
+use AppleScript version "2.4" -- Yosemite (10.10) or latertell application "Spotify" to quitrepeat	if application "Spotify" is not running then		activate application "Spotify"		tell application "Spotify" to play		exit repeat	end ifend repeat
