@@ -1,0 +1,21 @@
+
+
+case $1 in
+(off)
+  SECONDS=0
+;;
+(*m)
+  SECONDS=$(( ${1%?} * 60 ))
+;;
+(*h)
+  SECONDS=$(( ${1%?} * 60 * 60 ))
+;;
+(*)
+  SECONDS=$1
+;;
+esac
+
+networksetup -setairportpower en0 on
+sleep $SECONDS
+networksetup -setairportpower en0 off
+

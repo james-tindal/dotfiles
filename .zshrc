@@ -54,30 +54,11 @@ bindkey "^Q" push-input  #ctrl-q to push input to history
 
 
 
-: '
+
+
 
           # ----  END basic config  ---- #
-          # ---- START init conda ---- #
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/usr/local/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/usr/local/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/usr/local/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/usr/local/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-          # ---- END init conda ---- #
           # ---- START user scripts ---- #
-'
-
 
 
 
@@ -197,3 +178,4 @@ alias yga="yarn global add"
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+alias month="cd ~/Documents/21.07"
