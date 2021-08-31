@@ -35,7 +35,7 @@ plugins=(
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH=~/Library/Python/3.7/bin:$PATH
 
 autoload -U +X bashcompinit && bashcompinit
