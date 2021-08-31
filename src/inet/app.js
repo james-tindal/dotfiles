@@ -1,7 +1,6 @@
 #!/usr/local/bin/node
 
-import { unlink as delete_file } from 'fs/promises'
-import { seconds_later, sleep, turn_off_wifi, turn_on_wifi, write_file } from './utilities.js'
+import { create_agent, delete_agent, log, turn_off_wifi, turn_on_wifi } from './utilities.js'
 
 // parse input
 // toggle wifi
@@ -33,10 +32,11 @@ const seconds =
 /***** toggle wifi / create future timestamp *****/
 
 seconds === 0
-? ( turn_off_wifi()
-  , delete_file('.TIMESTAMP') )
-: ( write_file('.TIMESTAMP', seconds_later(seconds).toString(), process.exit)
-  , turn_on_wifi()
-  , sleep(seconds))
+? ( log('Turning wifi off')
+  , turn_off_wifi()
+  , delete_agent() )
+: ( log('Will turn wifi off in ' + match[0])
+  , create_agent(seconds)
+  , turn_on_wifi())
 
 
