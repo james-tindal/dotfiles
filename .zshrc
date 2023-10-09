@@ -49,7 +49,7 @@ alias b=brew
 
 bindkey "^U" backward-kill-line
 bindkey "^X^_" redo
-bindkey "^Q" push-input  #ctrl-q to push input to history
+bindkey "^Q" push-input  # ctrl-q to push input to history
 
 
 
@@ -166,11 +166,6 @@ alias dah="blueutil --disconnect 38-18-4c-4b-40-bc"
 
 alias movies='e ~/"Library/Mobile Documents/com~apple~TextEdit/Documents/Movies to Watch.rtf"'
 
-# fauna autocomplete setup
-FAUNA_AC_ZSH_SETUP_PATH=/Users/James/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
-# fauna autocomplete setup
-FAUNA_AC_ZSH_SETUP_PATH=/Users/james/Library/Caches/fauna-shell/autocomplete/zsh_setup && test -f $FAUNA_AC_ZSH_SETUP_PATH && source $FAUNA_AC_ZSH_SETUP_PATH;
-
 alias ya="yarn add"
 alias yga="yarn global add"
 
@@ -179,3 +174,10 @@ alias yga="yarn global add"
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
 alias month="cd ~/Documents/21.07"
+
+# pnpm
+export PNPM_HOME="/Users/james/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
