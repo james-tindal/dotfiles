@@ -181,3 +181,5 @@ export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
 export PATH="/usr/local/opt/postgresql@15/bin:$PATH"
+
+alias kb="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/KB/"
